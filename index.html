@@ -1,0 +1,313 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Abdelrahman Elbehairy</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout concept: a survey sheet. Calm cool-grey ground, teal ink for structure, one orange mark for "the selected site",
+   a scale bar as the section divider, mono type for coordinates, dates and data. */
+:root {
+  --bg: #f1f4f3;
+  --surface: #ffffff;
+  --fg: #0f1f24;
+  --muted: #51636a;
+  --line: #cbd5d6;
+  --accent: #0a6b6e;
+  --accent-ink: #ffffff;
+  --mark: #c94d1f;
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c171b; --surface: #12232a; --fg: #e6eeee; --muted: #93a7ac; --line: #24373d;
+    --accent: #4fc3c0; --accent-ink: #082225; --mark: #f0804f; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0c171b; --surface: #12232a; --fg: #e6eeee; --muted: #93a7ac; --line: #24373d;
+  --accent: #4fc3c0; --accent-ink: #082225; --mark: #f0804f; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--fg);
+  font: 400 16px/1.6 var(--font-body);
+  padding-block: 0 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 980px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.15; }
+p { margin: 0; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.mono { font-family: var(--font-mono); font-size: 0.8125rem; letter-spacing: 0.02em; }
+.eyebrow { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+/* Hero */
+.hero { padding-block: 56px 40px; display: grid; gap: 20px; }
+.coords { display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--muted); }
+.coords span::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--mark); margin-right: 8px; }
+.hero h1 { font-size: clamp(2.1rem, 6.4vw, 3.9rem); font-weight: 700; letter-spacing: -0.02em; max-width: 16ch; }
+.hero .role { font-family: var(--font-display); font-size: clamp(1.1rem, 2.6vw, 1.45rem); font-weight: 500; color: var(--accent); }
+.hero .intro { max-width: 62ch; color: var(--muted); font-size: 1.0625rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
+.btn {
+  font: 500 0.9375rem var(--font-body); display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 18px; border-radius: 6px; border: 1px solid var(--accent); text-decoration: none; cursor: pointer;
+  background: var(--accent); color: var(--accent-ink);
+}
+.btn.ghost { background: transparent; color: var(--accent); }
+.btn:hover { filter: brightness(1.08); }
+
+/* Scale bar divider */
+.scale { display: flex; align-items: center; gap: 12px; margin-block: 44px 28px; color: var(--muted); }
+.scale .bar { flex: 0 0 120px; height: 8px; border: 1.5px solid var(--fg); border-top: 0; position: relative;
+  background: linear-gradient(90deg, var(--fg) 0 50%, transparent 50% 100%); background-size: 100% 4px; background-repeat: no-repeat; }
+.scale .rule { flex: 1; height: 1px; background: var(--line); }
+.scale h2 { font-size: 1.5rem; font-weight: 600; white-space: nowrap; }
+
+/* Projects */
+.project { display: grid; gap: 22px; padding-block: 28px; border-top: 1px solid var(--line); }
+.project:first-of-type { border-top: 0; padding-top: 0; }
+.project-head { display: grid; gap: 8px; }
+.project h3 { font-size: clamp(1.35rem, 3.4vw, 1.75rem); font-weight: 600; }
+.meta { display: flex; flex-wrap: wrap; gap: 4px 14px; color: var(--muted); }
+.meta b { font-weight: 500; color: var(--fg); }
+.cols { display: grid; gap: 24px; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: start; }
+.cols > * { min-width: 0; }
+.prose { display: grid; gap: 12px; max-width: 64ch; }
+ul.facts { margin: 0; padding-left: 1.1rem; display: grid; gap: 6px; }
+ul.facts li::marker { color: var(--accent); }
+figure { margin: 0; display: grid; gap: 8px; }
+figure img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+figcaption { color: var(--muted); font-size: 0.8125rem; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.tags li { font-family: var(--font-mono); font-size: 0.75rem; padding: 3px 9px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); }
+
+/* Data panels */
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px; display: grid; gap: 14px; }
+.panel h4 { margin: 0; font: 500 0.75rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.row { display: grid; grid-template-columns: minmax(0, 9.5rem) 1fr 3.2rem; align-items: center; gap: 10px; font-size: 0.875rem; }
+.row .name { overflow-wrap: anywhere; }
+.row .val { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.track { position: relative; height: 12px; background-image: repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px 25%); border-bottom: 1px solid var(--line); }
+.fill { position: absolute; left: 0; top: 2px; bottom: 2px; background: var(--accent); border-radius: 0 3px 3px 0; }
+.fill.top { background: var(--mark); }
+.axis { display: grid; grid-template-columns: minmax(0, 9.5rem) 1fr 3.2rem; gap: 10px; color: var(--muted); }
+.axis .ticks { display: flex; justify-content: space-between; }
+.note { color: var(--muted); font-size: 0.8125rem; }
+
+/* Training list */
+.timeline { list-style: none; margin: 0; padding: 0; display: grid; }
+.timeline li { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 4px 20px; padding-block: 16px; border-top: 1px solid var(--line); }
+.timeline li:first-child { border-top: 0; }
+.timeline .when { color: var(--muted); }
+.timeline .what { font-weight: 600; }
+.timeline .where { color: var(--muted); }
+.timeline .detail { grid-column: 2; color: var(--muted); font-size: 0.9375rem; max-width: 66ch; }
+
+/* Skills */
+.skills { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+.skills .panel { gap: 10px; }
+.skills p { font-size: 0.9375rem; }
+
+/* Contact */
+.contact { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.contact .email { font-family: var(--font-mono); font-size: 0.9375rem; user-select: all; overflow-wrap: anywhere; }
+.status { color: var(--muted); font-size: 0.8125rem; min-height: 1.2em; }
+footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+
+@media (max-width: 760px) {
+  .cols { grid-template-columns: minmax(0, 1fr); }
+  .timeline li { grid-template-columns: minmax(0, 1fr); }
+  .timeline .detail { grid-column: 1; }
+  .row, .axis { grid-template-columns: minmax(0, 7rem) 1fr 2.8rem; }
+  .scale .bar { flex-basis: 64px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <p class="eyebrow">GIS portfolio</p>
+    <h1>Abdelrahman Fathy Abdullah Elbehairy</h1>
+    <p class="role">Entry-level GIS analyst</p>
+    <div class="coords mono" aria-label="Location">
+      <span>Cairo, Egypt &middot; 30.04&deg; N, 31.24&deg; E</span>
+      <span>B.Sc. Geographic Information Systems, Ain Shams University, 2025</span>
+    </div>
+    <p class="intro">I work with ArcGIS Pro, QGIS, PostGIS and Python on spatial analysis, CAD-to-GIS data conversion and web maps. I am looking for a junior GIS role on infrastructure, utility or environmental projects.</p>
+    <div class="actions">
+      <a class="btn" href="#projects">See projects</a>
+      <a class="btn ghost" href="#contact">Contact</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/abdelrahman-fathy-307403309/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </header>
+
+  <section id="projects" aria-labelledby="projects-title">
+    <div class="scale"><div class="bar" aria-hidden="true"></div><h2 id="projects-title">Projects</h2><div class="rule" aria-hidden="true"></div></div>
+
+    <!-- Project 1 -->
+    <article class="project">
+      <div class="project-head">
+        <div class="meta mono"><span><b>Jul 2025</b></span><span>ArcGIS Pro script tool</span><span>Python &middot; ArcPy</span></div>
+        <h3>CAD to GIS Layer Export Tool</h3>
+      </div>
+      <div class="cols">
+        <div class="prose">
+          <p>Infrastructure drawings arrive as DWG files with dozens of layers: pipes, valves, fittings. Selecting and exporting each layer by hand is slow. This script tool takes a DWG and a list of layer names and writes each layer out as its own feature class in a geodatabase.</p>
+          <ul class="facts">
+            <li>Inputs: a CAD file, an output geodatabase and comma-separated layer names.</li>
+            <li>Converts the CAD file to a feature dataset, then exports each requested layer from the line, point and polygon classes.</li>
+            <li>Cleans layer names automatically, so <span class="mono">HD PIPE 63</span> becomes <span class="mono">HD_PIPE_63</span>.</li>
+            <li>Tested on an as-built water network DWG. Applies to water, sewer, electricity and gas networks.</li>
+          </ul>
+          <ul class="tags" aria-label="Tools"><li>Python</li><li>ArcPy</li><li>ArcGIS Pro</li><li>CAD / DWG</li><li>File geodatabase</li></ul>
+        </div>
+        <figure>
+          <img src="images/tool-script.jpg" width="1600" height="900" alt="The tool's embedded Python script open in the ArcGIS Pro tool properties window" loading="lazy">
+          <figcaption>The script as it appears inside the ArcGIS Pro tool properties.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <!-- Project 2 -->
+    <article class="project">
+      <div class="project-head">
+        <div class="meta mono"><span><b>Apr &ndash; May 2025</b></span><span>Practice project</span><span>New Cairo, Egypt</span></div>
+        <h3>Fuel Station Site Suitability</h3>
+      </div>
+      <div class="prose">
+        <p>A weighted multi-criteria analysis in the ArcGIS Pro Suitability Modeler. I built it to apply what I had learned: preparing the inputs, reclassifying them to a common scale, weighting them by importance, and scoring candidate sites for a new fuel station.</p>
+        <ul class="facts">
+          <li>Prepared an SRTM 1 arc-second DEM (mosaic, clip to New Cairo) and derived slope, so flatter land scores higher.</li>
+          <li>Clipped the road network and built distance surfaces to roads, to existing fuel stations and to the suggested sites.</li>
+          <li>Combined four reclassified rasters with custom weights, then scored five candidate sites.</li>
+        </ul>
+      </div>
+      <div class="cols">
+        <div class="panel">
+          <h4>Criteria weights</h4>
+          <div class="row"><span class="name">Roads</span><span class="track"><span class="fill" style="width:95%"></span></span><span class="val">1.9</span></div>
+          <div class="row"><span class="name">Slope</span><span class="track"><span class="fill" style="width:70%"></span></span><span class="val">1.4</span></div>
+          <div class="row"><span class="name">Existing stations</span><span class="track"><span class="fill" style="width:60%"></span></span><span class="val">1.2</span></div>
+          <div class="row"><span class="name">Suggested stations</span><span class="track"><span class="fill" style="width:55%"></span></span><span class="val">1.1</span></div>
+          <div class="axis mono" aria-hidden="true"><span></span><span class="ticks"><span>0</span><span>0.5</span><span>1.0</span><span>1.5</span><span>2.0</span></span><span></span></div>
+        </div>
+        <div class="panel">
+          <h4>Suitability score by candidate site</h4>
+          <div class="row"><span class="name">Site 3</span><span class="track"><span class="fill top" style="width:93%"></span></span><span class="val">37.2</span></div>
+          <div class="row"><span class="name">Site 2</span><span class="track"><span class="fill" style="width:92.5%"></span></span><span class="val">37.0</span></div>
+          <div class="row"><span class="name">Site 4</span><span class="track"><span class="fill" style="width:92%"></span></span><span class="val">36.8</span></div>
+          <div class="row"><span class="name">Site 5</span><span class="track"><span class="fill" style="width:35%"></span></span><span class="val">14.0</span></div>
+          <div class="row"><span class="name">Site 1</span><span class="track"><span class="fill" style="width:27.5%"></span></span><span class="val">11.0</span></div>
+          <div class="axis mono" aria-hidden="true"><span></span><span class="ticks"><span>0</span><span>10</span><span>20</span><span>30</span><span>40</span></span><span></span></div>
+          <p class="note">Site 3 scores highest. The top three sites are within 0.4 points of each other, so they read as one group of highly suitable locations.</p>
+        </div>
+      </div>
+      <div class="cols">
+        <figure>
+          <img src="images/suitability-map-and-candidates.jpg" width="1600" height="900" alt="ArcGIS Pro map showing the suitability surface over New Cairo with the five suggested stations and their scores in the attribute table" loading="lazy">
+          <figcaption>Suitability surface over New Cairo with the five suggested stations and their scores.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/suitability-modeler-weights.jpg" width="1600" height="900" alt="The ArcGIS Pro Suitability Modeler pane showing the four input rasters and their weights, with the transformation function chart" loading="lazy">
+          <figcaption>Suitability Modeler: input rasters, weights and the transformation applied to station distance.</figcaption>
+        </figure>
+      </div>
+      <ul class="tags" aria-label="Tools"><li>ArcGIS Pro</li><li>Suitability Modeler</li><li>Raster analysis</li><li>Reclassify</li><li>Euclidean distance</li><li>SRTM DEM</li></ul>
+    </article>
+
+    <!-- Project 3 -->
+    <article class="project">
+      <div class="project-head">
+        <div class="meta mono"><span>ArcGIS StoryMaps</span><span>ArcGIS Online</span></div>
+        <h3>Ain Shams University Story Map</h3>
+      </div>
+      <div class="prose">
+        <p>An interactive story map about Ain Shams University, built with ArcGIS StoryMaps on ArcGIS Online.</p>
+        <div class="actions">
+          <a class="btn" href="https://storymaps.arcgis.com/stories/500b8db5a1c3489aa258c6e5c6b896bf" target="_blank" rel="noopener">Open the story map</a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section id="training" aria-labelledby="training-title">
+    <div class="scale"><div class="bar" aria-hidden="true"></div><h2 id="training-title">Training and courses</h2><div class="rule" aria-hidden="true"></div></div>
+    <ul class="timeline">
+      <li>
+        <span class="when mono">Sep 2025</span>
+        <div><span class="what">BIM-to-GIS training</span> <span class="where">KayTech Company</span></div>
+        <p class="detail">Autodesk Revit MEP and Civil 3D workflows. Converted BIM models and engineering data into GIS-compatible datasets and prepared them for ArcGIS Pro, keeping geometry, attributes and coordinate systems.</p>
+      </li>
+      <li>
+        <span class="when mono">May 2025</span>
+        <div><span class="what">Make an Impact with Modern Geo Apps</span> <span class="where">Esri Training &middot; MOOC, 4 weeks</span></div>
+      </li>
+      <li>
+        <span class="when mono">2024</span>
+        <div><span class="what">GIS Specialization</span> <span class="where">University of California, Davis &middot; online</span></div>
+        <p class="detail">Fundamentals of GIS; GIS Data Formats, Design and Quality; Geospatial and Environmental Analysis; Imagery, Automation and GIS Applications; Geospatial Analysis Capstone Project.</p>
+      </li>
+      <li>
+        <span class="when mono">Dec 2023 &ndash; Jul 2024</span>
+        <div><span class="what">GIS Open-Source Essential Workflows</span> <span class="where">Penta Academy (Penta-b)</span></div>
+        <p class="detail">QGIS data editing and map design, PostGIS database fundamentals and spatial queries, publishing data with GeoServer (WMS and WFS), and a web mapping application built with Maps and Apps Enterprise.</p>
+      </li>
+      <li>
+        <span class="when mono">Dec 2023</span>
+        <div><span class="what">ArcGIS Pro Basics</span> <span class="where">Esri Training &middot; web course, 50 minutes</span></div>
+      </li>
+      <li>
+        <span class="when mono">Jun &ndash; Oct 2023</span>
+        <div><span class="what">GIS Bloggers intensive course</span> <span class="where">GIS Bloggers</span></div>
+        <p class="detail">ArcGIS Pro, ArcGIS Desktop, ArcGIS Online, ArcGIS Earth and Google Earth, plus where to download spatial data, attribute data and satellite imagery.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="skills" aria-labelledby="skills-title">
+    <div class="scale"><div class="bar" aria-hidden="true"></div><h2 id="skills-title">Skills</h2><div class="rule" aria-hidden="true"></div></div>
+    <div class="skills">
+      <div class="panel"><h4>GIS software</h4><p>ArcGIS Pro, ArcGIS Online (Dashboards, Survey123, StoryMaps, Map Viewer), QGIS, Google Earth. Also ArcMap and ArcGIS Desktop tools.</p></div>
+      <div class="panel"><h4>Data and databases</h4><p>PostGIS, spatial SQL, file and enterprise geodatabases, GeoServer (WMS, WFS).</p></div>
+      <div class="panel"><h4>Programming and CAD</h4><p>Python for GIS automation (ArcPy), AutoCAD, Autodesk Revit MEP and Civil 3D for BIM-to-GIS conversion.</p></div>
+      <div class="panel"><h4>Field and languages</h4><p>Total station and level surveying. Arabic (native), English (very good).</p></div>
+    </div>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="scale"><div class="bar" aria-hidden="true"></div><h2 id="contact-title">Contact</h2><div class="rule" aria-hidden="true"></div></div>
+    <div class="contact">
+      <span class="email" id="email">Abdelrahmanfathy176@gmail.com</span>
+      <button class="btn ghost" id="copy" type="button">Copy email</button>
+      <a class="btn ghost" href="https://www.linkedin.com/in/abdelrahman-fathy-307403309/" target="_blank" rel="noopener">LinkedIn</a>
+      <span class="status" id="status" role="status" aria-live="polite"></span>
+    </div>
+  </section>
+
+  <footer class="mono"><span>Cairo, Egypt</span><span>B.Sc. GIS, Ain Shams University, 2025</span></footer>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById("copy"), status = document.getElementById("status"), email = document.getElementById("email");
+  function selectText() {
+    try { var r = document.createRange(); r.selectNodeContents(email); var s = getSelection(); s.removeAllRanges(); s.addRange(r); } catch (e) {}
+  }
+  btn.addEventListener("click", function () {
+    var text = email.textContent.trim();
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { status.textContent = "Copied."; }, function () { selectText(); status.textContent = "Press Ctrl+C to copy."; });
+    } else { selectText(); status.textContent = "Press Ctrl+C to copy."; }
+  });
+})();
+</script>
+
+</body></html>
